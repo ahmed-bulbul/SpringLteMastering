@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/admin/admin_layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+    <style th:replace="/admin/shared/style"></style>
+</head>
+<body>
+
+<div th:replace="/admin/shared/header"></div>
+
+<div th:replace="/admin/shared/left_side"></div>
+
+<div class="wrapper">
+
+    <div layout:fragment="content">
+        <!-- Content Header (Page header) -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>General Form</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">General Form</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-12">
+                            <!-- general form elements -->
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Quick Example</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form role="form" action="#" th:action="@{/employees/save}"
+                                      th:object="${employee}" method="POST">
+                                    <!--  Add hidden form to handle the update -->
+                                    <input type="hidden" th:field="*{id}">
+
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">First Name</label>
+                                            <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4"
+                                                   id="exampleInputEmail1" placeholder="First name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputLastName">Last Name</label>
+                                            <input type="text" th:field="*{lastName}"
+                                                   class="form-control mb-4 col-4" id="exampleInputLastName"
+                                                   placeholder="Last name">
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail">Email</label>
+                                            <input type="text" th:field="*{email}"
+                                                   class="form-control mb-4 col-4" id="exampleInputEmail"
+                                                   placeholder="Email">
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                                <hr>
+                                <a style="padding-left: 10px;" th:href="@{/employees/list}">Back to Employees List</a>
+                                <hr>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </div>
+    </div>
+</div>
+
+<div th:replace="/admin/shared/footer"></div>
+
+<div layout:fragment="script">
+
+</div>
+
+<div th:replace="/admin/shared/file_script"></div>
+
+
+<th:block layout:fragment="script">
+    <script>
+        console.log("Add User");
+    </script>
+</th:block>
+
+</body>
+</html>
